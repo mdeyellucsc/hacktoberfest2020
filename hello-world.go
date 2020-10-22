@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+    "crypto/sha1"
+    "fmt"
+)
 
 func main() {
 
@@ -24,4 +27,12 @@ func main() {
 
     n := map[string]int{"foo": 1, "bar": 2}
     fmt.Println("map:", n)
+
+
+    s := "sha1 this string"
+    h := sha1.New()
+    h.Write([]byte(s))
+    bs := h.Sum(nil)
+    fmt.Println(s)
+    fmt.Printf("%x\n", bs)
 }
